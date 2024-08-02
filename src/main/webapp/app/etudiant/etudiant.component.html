@@ -1,0 +1,24 @@
+<div>
+  <h2>Liste des étudiants</h2>
+  <ul>
+    <li *ngFor="let etudiant of etudiants">
+      {{ etudiant.nom }} {{ etudiant.prenom }} - {{ etudiant.adresse }} - {{ etudiant.email }} - {{ etudiant.telephone }}
+      <button (click)="ajourEtudiant()">Modifier</button>
+      <button (click)="supprimeEtudiant(etudiant.id)">Supprimer</button>
+    </li>
+  </ul>
+  <h2>{{ etudiantActuel ? 'Modifier un étudiant' : 'Ajouter un étudiant' }}</h2>
+  <form (ngSubmit)="etudiantActuel ? ajourEtudiant() : creerEtudiant()">
+    <label for="nom">Nom:</label>
+    <input [(ngModel)] name="nom" type="text" required />
+    <label for="prenom">Prénom:</label>
+    <input [(ngModel)] name="prenom" type="text" required />
+    <label for="adresse">Adresse:</label>
+    <input [(ngModel)] name="adresse" type="text" required />
+    <label for="email">Email:</label>
+    <input [(ngModel)] name="email" type="email" required />
+    <label for="telephone">Téléphone:</label>
+    <input [(ngModel)] name="telephone" type="text" required />
+    <button type="submit">{{ etudiantActuel ? 'Modifier' : 'Ajouter' }}</button>
+  </form>
+</div>
