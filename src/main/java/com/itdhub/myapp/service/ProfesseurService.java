@@ -9,40 +9,30 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProfesseurService {
-
     @Autowired
-    private ProfesseurRepository professeurRepository;
-
-    /*public Professeur getprofesseur(String nom, String prenom,String adresse, String telephone, String email, String matiere) {
-         Professeur professeur = new Professeur();
-         professeur.setNom(nom);
-         professeur.setPrenom(prenom);
-         professeur.setAdresse(adresse);
-         professeur.setTelephone(telephone);
-         professeur.setEmail(email);
-         professeur.setMatiere(matiere);
-         return professeur;
-     }
-    public void supprimeProfesseur(Long id) {
-        professeurRepository.deleteById(id);
-    }
-    public Optional<Professeur> getProfesseurById(Long id) {
-        return professeurRepository.findById(id);
-    }*/
-
-    public List<Professeur> getAllProfesseurs() {
-        return professeurRepository.findAll();
+    private final ProfesseurRepository professeurRepository;
+    public ProfesseurService(ProfesseurRepository professeurRepository) {
+        this.professeurRepository = professeurRepository;
     }
 
-    public Optional<Professeur> getProfesseurById(Long id) {
-        return professeurRepository.findById(id);
-    }
-
-    public Professeur creerOuajouterProfesseur(Professeur professeur) {
+    public Professeur creer(Professeur professeur) {
         return professeurRepository.save(professeur);
     }
 
-    public void supprimeProfesseur(Long id) {
+    public List<Professeur> getAll() {
+        return professeurRepository.findAll();
+    }
+
+    public Optional<Professeur> getById(Long id) {
+        return professeurRepository.findById(id);
+    }
+
+    public Professeur mettreAJour(Professeur professeur) {
+        return professeurRepository.save(professeur);
+    }
+
+    public void supprimer(Long id) {
         professeurRepository.deleteById(id);
     }
 }
+

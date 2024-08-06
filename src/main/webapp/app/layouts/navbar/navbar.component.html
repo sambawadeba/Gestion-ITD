@@ -1,4 +1,6 @@
 <nav data-cy="navbar" class="navbar navbar-dark navbar-expand-md bg-dark">
+  <ul>
+    <li><a routerLink="/etudiants">Étudiants</a></li>
   <div class="container-fluid">
     <a class="navbar-brand logo" routerLink="/" (click)="collapseNavbar()">
       <span class="logo-img"></span>
@@ -222,4 +224,6 @@
       </ul>
     </div>
   </div>
+</ul>
 </nav>
+<router-outlet></router-outlet>

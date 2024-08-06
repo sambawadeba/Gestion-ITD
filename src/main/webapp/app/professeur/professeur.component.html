@@ -1,39 +1,41 @@
 <div>
+  <h1>Gestion des Professeurs</h1>
+  
+  <h2>Formulaire pour ajouter ou mettre à jour un professeur</h2>
+  <form (ngSubmit)="editMode ? mettreAJourProfesseur() : ajouterProfesseur()">
+    <div>
+      <label for="nom">Nom:</label>
+      <input type="text" id="nom" [(ngModel)]="professeur.nom" name="nom" placeholder="Nom" required>
+    </div>
+    <div>
+      <label for="prenom">Prénom:</label>
+      <input type="text" id="prenom" [(ngModel)]="professeur.prenom" name="prenom" placeholder="Prénom" required>
+    </div>
+    <div>
+      <label for="adresse">Adresse:</label>
+      <input type="text" id="adresse" [(ngModel)]="professeur.adresse" name="adresse" placeholder="Adresse" required>
+    </div>
+    <div>
+      <label for="email">Email:</label>
+      <input type="email" id="email" [(ngModel)]="professeur.email" name="email" placeholder="Email" required>
+    </div>
+    <div>
+      <label for="telephone">Téléphone:</label>
+      <input type="text" id="telephone" [(ngModel)]="professeur.telephone" name="telephone" placeholder="Téléphone" required>
+    </div>
+    <div>
+      <label for="matiere">Matière:</label>
+      <input type="text" id="matiere" [(ngModel)]="professeur.matiere" name="matiere" placeholder="Matière" required>
+    </div>
+    <button type="submit">{{ editMode ? 'Mettre à jour' : 'Ajouter' }}</button>
+  </form>
+
   <h2>Liste des Professeurs</h2>
   <ul>
-    <li *ngFor="professeur">
-      {{ professeur.nom }} {{ professeur.prenom }} - {{ professeur.matiere }}
-      <button (click)="selectProfesseur(professeur.id)">Modifier</button>
-      <button (click)="supprimeProfesseur(professeur.id)">Supprimer</button>
+    <li *ngFor="let professeur of professeurs">
+      {{ professeur.nom }} {{ professeur.prenom }} - {{ professeur.email }}
+      <button (click)="modifierProfesseur(professeur)">Éditer</button>
+      <button (click)="supprimerProfesseur(professeur.id)">Supprimer</button>
     </li>
   </ul>
-
-  <h2>{{ selectedId ? 'Modifier' : 'Créer' }} Professeur</h2>
-  <form (ngSubmit)="selectedId ? ajouteProfesseur() : creerProfesseur()">
-    <div>
-      <label>Nom:</label>
-      <input [(ngModel)]="professeur.nom" name="nom" required />
-    </div>
-    <div>
-      <label>Prénom:</label>
-      <input [(ngModel)]="professeur.prenom" name="prenom" required />
-    </div>
-    <div>
-      <label>Email:</label>
-      <input [(ngModel)]="professeur.email" name="email" required />
-    </div>
-    <div>
-      <label>Téléphone:</label>
-      <input [(ngModel)]="professeur.telephone" name="telephone" required />
-    </div>
-    <div>
-      <label>Adresse:</label>
-      <input [(ngModel)]="professeur.adresse" name="adresse" required />
-    </div>
-    <div>
-      <label>Matière:</label>
-      <input [(ngModel)]="professeur.matiere" name="matiere" required />
-    </div>
-    <button type="submit">{{ selectedId ? 'Mettre à jour' : 'Créer' }}</button>
-  </form>
 </div>

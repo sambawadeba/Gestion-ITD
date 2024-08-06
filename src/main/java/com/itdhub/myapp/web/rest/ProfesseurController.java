@@ -9,58 +9,44 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/api/professeurs")
+@RequestMapping("/api")
 public class ProfesseurController {
 
-    @Autowired
-    private ProfesseurService professeurService;
+    private final ProfesseurService professeurService;
 
-    @GetMapping
-    public List<Professeur> getAllProfesseurs() {
-        return professeurService.getAllProfesseurs();
+    public ProfesseurController(ProfesseurService professeurService) {
+        this.professeurService = professeurService;
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Professeur> getProfesseurById(@PathVariable Long id) {
-        Optional<Professeur> professeur = professeurService.getProfesseurById(id);
-        return professeur.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    @PostMapping("/professeurs")
+    public ResponseEntity<Professeur> creer(@RequestBody Professeur professeur) {
+        Professeur result = professeurService.creer(professeur);
+        return ResponseEntity.ok(result);
     }
 
-    @PostMapping
-    public Professeur creerProfesseur(@RequestBody Professeur professeur) {
-        return professeurService.creerOuajouterProfesseur(professeur);
+    @GetMapping("/professeurs")
+    public List<Professeur> getAll() {
+        return professeurService.getAll();
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Professeur> ajouteProfesseur(@PathVariable Long id, @RequestBody Professeur professeur) {
-        if (!professeurService.getProfesseurById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        professeur.setId(id);
-        Professeur ajouteProfesseur = professeurService.creerOuajouterProfesseur(professeur);
-        return ResponseEntity.ok(ajouteProfesseur);
+    @GetMapping("/professeurs/{id}")
+    public ResponseEntity<Professeur> getById(@PathVariable Long id) {
+        return professeurService.getById(id)
+            .map(ResponseEntity::ok)
+            .orElse(ResponseEntity.notFound().build());
     }
 
-    /*
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> supprimeProfesseur(@PathVariable Long id) {
-        if (!professeurService.getProfesseurById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        professeurService.supprimeProfesseur(id);
-        return ResponseEntity.noContent().build();
+    @PutMapping("/professeurs")
+    public ResponseEntity<Professeur> mettreAJour(@RequestBody Professeur professeur) {
+        Professeur result = professeurService.mettreAJour(professeur);
+        return ResponseEntity.ok(result);
     }
-    @GetMapping("/creer/proffesseur/{nom}/{prenom}/{adresse}/{telephone}/{email}/{matiere}")
-    public Professeur createProfesseur(@PathVariable String nom,@PathVariable String prenom,@PathVariable String adresse,@PathVariable String telephone,@PathVariable String email,@PathVariable String matiere) {
-        Professeur professeur = professeurService.getprofesseur(nom,prenom,adresse,telephone,email,matiere);
-        return professeur;
-    }*/
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> supprimeProfesseur(@PathVariable Long id) {
-        if (!professeurService.getProfesseurById(id).isPresent()) {
-            return ResponseEntity.notFound().build();
-        }
-        professeurService.supprimeProfesseur(id);
+
+    @DeleteMapping("/professeurs/{id}")
+    public ResponseEntity<Void> supprimer(@PathVariable Long id) {
+        professeurService.supprimer(id);
         return ResponseEntity.noContent().build();
     }
 }
+
+

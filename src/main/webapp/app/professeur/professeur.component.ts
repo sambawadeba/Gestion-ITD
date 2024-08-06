@@ -1,59 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { ProfesseurService } from './professeur.service';
 import { Professeur } from './professeur.model';
+import { ProfesseurService } from './professeur.service';
 
 @Component({
-  selector: 'app-professeur',
+  selector: 'jhi-professeur',
   templateUrl: './professeur.component.html',
-  styleUrls: ['./professeur.component.css'],
+  styleUrls: ['./professeur.component.css']
 })
 export class ProfesseurComponent implements OnInit {
   professeurs: Professeur[] = [];
   professeur: Professeur = new Professeur();
-  selectedId: number | null = null;
+  appelleMethode: boolean = false;
 
   constructor(private professeurService: ProfesseurService) {}
 
   ngOnInit(): void {
-    this.getAllProfesseurs();
-  }
-
-  getAllProfesseurs(): void {
-    this.professeurService.getAllProfesseurs().subscribe(data => {
+    this.professeurService.getAll().subscribe(data => {
       this.professeurs = data;
     });
   }
 
-  getProfesseur(id: number): void {
-    this.professeurService.getProfesseurById(id).subscribe(data => {
-      this.professeur = data;
-    });
-  }
-
-  creerProfesseur(): void {
-    this.professeurService.creerProfesseur(this.professeur).subscribe(() => {
-      this.getAllProfesseurs();
+  ajouterProfesseur(): void {
+    this.professeurService.creer(this.professeur).subscribe(professeur => {
+      this.professeurs.push(professeur);
       this.professeur = new Professeur();
+      this.appelleMethode = false;
     });
   }
 
-  ajouteProfesseur(): void {
-    if (this.selectedId !== null) {
-      this.professeurService.ajouteProfesseur(this.selectedId, this.professeur).subscribe(() => {
-        this.getAllProfesseurs();
-        this.professeur = new Professeur();
-      });
-    }
-  }
-
-  supprimeProfesseur(id: number): void {
-    this.professeurService.supprimeProfesseur(id).subscribe(() => {
-      this.getAllProfesseurs();
+  mettreAJourProfesseur(): void {
+    this.professeurService.mettreAJour(this.professeur).subscribe(updatedProfesseur => {
+      const index = this.professeurs.findIndex(p => p.id === updatedProfesseur.id);
+      if (index !== -1) {
+        this.professeurs[index] = updatedProfesseur;
+      }
+      this.professeur = new Professeur();
+      this.appelleMethode = false;
     });
   }
 
-  selectProfesseur(id: number): void {
-    this.selectedId = id;
-    this.getProfesseur(id);
+  supprimerProfesseur(id: number): void {
+    this.professeurService.supprimer(id).subscribe(() => {
+      this.professeurs = this.professeurs.filter(p => p.id !== id);
+    });
+  }
+
+  modifierProfesseur(professeur: Professeur): void {
+    this.professeur = { ...professeur };
+    this.appelleMethode = true;
   }
 }
