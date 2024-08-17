@@ -17,7 +17,7 @@ export class AppModule {}
 /*import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module'; // Import du module de routage
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
 import { FormsModule } from '@angular/forms'; // Import pour ngModel
@@ -29,8 +29,8 @@ import {LoginComponent} from './login/login.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, // Inclusion du module de routage
-    FormsModule // Inclusion pour ngModel
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

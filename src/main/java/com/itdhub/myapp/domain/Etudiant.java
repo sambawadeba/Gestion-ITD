@@ -1,29 +1,56 @@
 package com.itdhub.myapp.domain;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+
+import jakarta.persistence.*;
+
 @Entity
 public class Etudiant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long numeroEtudiant;
 
+    @Column(nullable = false, unique = true)
+    private String idEtudiant;
+
+    @Column(nullable = false)
     private String nom;
+
+    @Column(nullable = false)
     private String prenom;
-    private String adresse;
+
+    @Column(nullable = false, unique = true)
     private String email;
+
+    private String adresse;
     private String telephone;
 
-    // Getters and Setters
+    // Constructeurs
+    public Etudiant() {}
 
-    public Long getId() {
-        return id;
+    public Etudiant(String idEtudiant, String nom, String prenom, String email, String adresse, String telephone) {
+        this.idEtudiant = idEtudiant;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.adresse = adresse;
+        this.telephone = telephone;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    // Getters et Setters
+    public Long getNumeroEtudiant() {
+        return numeroEtudiant;
+    }
+
+    public void setNumeroEtudiant(Long numeroEtudiant) {
+        this.numeroEtudiant = numeroEtudiant;
+    }
+
+    public String getIdEtudiant() {
+        return idEtudiant;
+    }
+
+    public void setIdEtudiant(String idEtudiant) {
+        this.idEtudiant = idEtudiant;
     }
 
     public String getNom() {
@@ -42,20 +69,20 @@ public class Etudiant {
         this.prenom = prenom;
     }
 
-    public String getAdresse() {
-        return adresse;
-    }
-
-    public void setAdresse(String adresse) {
-        this.adresse = adresse;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getAdresse() {
+        return adresse;
+    }
+
+    public void setAdresse(String adresse) {
+        this.adresse = adresse;
     }
 
     public String getTelephone() {
