@@ -20,20 +20,23 @@ public class Etudiant {
 
     @Column(nullable = false, unique = true)
     private String email;
-
+    @Column(nullable = false)
     private String adresse;
+    @Column(nullable = false)
     private String telephone;
-    private String MotDePasse;
+    @Column(nullable = false)
+    private String motDePasse;
 
     // Constructeurs
 
-    public Etudiant(String idEtudiant, String nom, String prenom, String email, String adresse, String telephone) {
+    public Etudiant(String idEtudiant, String nom, String prenom, String email, String adresse, String telephone, String motDePasse) {
         this.idEtudiant = idEtudiant;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.adresse = adresse;
         this.telephone = telephone;
+        this.motDePasse=motDePasse;
     }
 
     public Etudiant() {
@@ -103,6 +106,14 @@ public class Etudiant {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 }
 
