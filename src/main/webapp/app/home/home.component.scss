@@ -2,16 +2,16 @@
 Main page styles
 ========================================================================== */
 
-.hipster {
+/*.hipster {
   display: inline-block;
   width: 347px;
   height: 497px;
   background: url('../../content/images/jhipster_family_member_0.svg') no-repeat center top;
   background-size: contain;
-}
+}*/
 
 /* wait autoprefixer update to allow simple generation of high pixel density media query */
-@media only screen and (-webkit-min-device-pixel-ratio: 2),
+/*@media only screen and (-webkit-min-device-pixel-ratio: 2),
   only screen and (-moz-min-device-pixel-ratio: 2),
   only screen and (-o-min-device-pixel-ratio: 2/1),
   only screen and (min-resolution: 192dpi),
@@ -20,4 +20,90 @@ Main page styles
     background: url('../../content/images/jhipster_family_member_0.svg') no-repeat center top;
     background-size: contain;
   }
+}*/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fcfafa;
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #003b8e;
+  padding: 20px;
+}
+.logo {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  //background: url('../../content/images/logo ITD.png') no-repeat center top;
+  background-size: contain;
+}
+
+
+.header h1 {
+  color: white;
+  margin: 0;
+}
+
+.main-content {
+  text-align: center;
+  padding: 40px 20px;
+}
+
+.main-content h2 {
+  margin-bottom: 40px;
+}
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.card {
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-decoration: none; 
+  color: inherit; 
+}
+.card:hover{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-title {
+  padding: 15px;
+  font-size: 1.2em;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+}
+
+.card:nth-child(1) .card-title {
+  background-color: #f16e00;
+}
+
+.card:nth-child(2) .card-title {
+  background-color: #003b8e;
+}
+
+.card:nth-child(3) .card-title {
+  background-color:#f16e00;
 }

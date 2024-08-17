@@ -10,11 +10,12 @@ import LoginComponent from './login/login.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
 
 const routes: Routes = [
-  {
+  /*{
     path: 'etudiant',
     component: EtudiantComponent,
     title: 'Etudiant',
   },
+  */
   {
     path: '',
     component: HomeComponent,
@@ -41,6 +42,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     title: 'login.title',
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
   },
   {
     path: '',
