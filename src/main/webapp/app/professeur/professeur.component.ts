@@ -41,7 +41,7 @@ export class ProfesseurComponent implements OnInit {
 
   supprimerProfesseur(id: number): void {
     this.professeurService.supprimer(id).subscribe(() => {
-      this.professeurs = this.professeurs.filter(p => p.id !== id);
+      this.professeurs = this.professeurs.filter(p => p.id != id);
     });
   }
 

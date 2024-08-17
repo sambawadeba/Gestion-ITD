@@ -16,20 +16,22 @@ export class AppModule {}
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppRoutingModule } from './app-routing.module'; // Import du module de routage
+import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
-import { FormsModule } from '@angular/forms'; // Import pour ngModel
+import { FormsModule } from '@angular/forms'; 
+import { ProfesseurComponent } from './professeur/professeur.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EtudiantComponent
+    EtudiantComponent,
+    
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule, // Inclusion du module de routage
-    FormsModule // Inclusion pour ngModel
+    AppRoutingModule,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

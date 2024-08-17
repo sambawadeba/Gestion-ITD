@@ -1,15 +1,12 @@
 package com.itdhub.myapp.web.rest;
-
 import com.itdhub.myapp.domain.Etudiant;
-import com.itdhub.myapp.repository.EtudiantRepository;
 import com.itdhub.myapp.service.EtudiantService;
-import java.util.List;
-import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-
+import java.util.List;
 @RestController
 @RequestMapping("/api/etudiants")
 public class EtudiantController {
@@ -17,29 +14,38 @@ public class EtudiantController {
     @Autowired
     private EtudiantService etudiantService;
 
-    @PostMapping
-    public Etudiant creerEtudiant(@RequestBody Etudiant etudiant) {
-        return etudiantService.creerEtudiant(etudiant);
-    }
-
-    @PutMapping("/{id}")
-    public Etudiant mettreAJourEtudiant(@PathVariable Long id, @RequestBody Etudiant infoEtudiant) {
-        return etudiantService.mettreAJourEtudiant(id, infoEtudiant);
-    }
-
     @GetMapping
-    public List<Etudiant> getAllEtudiants() {
-        return etudiantService.getAllEtudiants();
+    public List<Etudiant> lireTous() {
+        return etudiantService.lireTous();
     }
 
     @GetMapping("/{id}")
-    public Etudiant getEtudiantById(@PathVariable Long id) {
-        return etudiantService.getEtudiantById(id);
+    public ResponseEntity<Etudiant> lireParId(@PathVariable Long id) {
+        Etudiant etudiant = etudiantService.lireParId(id);
+        if (etudiant != null) {
+            return new ResponseEntity<>(etudiant, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @PostMapping
+    public ResponseEntity<Etudiant> creer(@RequestBody Etudiant etudiant) {
+        Etudiant nouveauEtudiant = etudiantService.creer(etudiant);
+        return new ResponseEntity<>(nouveauEtudiant, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Etudiant> modifier(@PathVariable Long id, @RequestBody Etudiant etudiant) {
+        Etudiant etudiantModifie = etudiantService.modifier(id, etudiant);
+        if (etudiantModifie != null) {
+            return new ResponseEntity<>(etudiantModifie, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> supprimerEtudiant(@PathVariable Long id) {
-        etudiantService.supprimerEtudiant(id);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<Void> supprimer(@PathVariable Long id) {
+        etudiantService.supprimer(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
