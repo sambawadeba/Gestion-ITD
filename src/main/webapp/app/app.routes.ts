@@ -9,8 +9,12 @@ import NavbarComponent from './layouts/navbar/navbar.component';
 import LoginComponent from './login/login.component';
 
 const routes: Routes = [
-  
- 
+  /*{
+    path: 'etudiant',
+    component: EtudiantComponent,
+    title: 'Etudiant',
+  },
+  */
   {
     path: '',
     component: HomeComponent,
@@ -37,6 +41,11 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
     title: 'login.title',
+  },
+  {
+    path: '',
+    redirectTo: '/login',
+    pathMatch: 'full',
   },
   {
     path: '',
