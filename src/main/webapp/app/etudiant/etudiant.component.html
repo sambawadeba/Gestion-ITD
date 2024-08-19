@@ -79,9 +79,11 @@
             <img src="../../content/images/logo_itd.png" alt="Logo ITD" class="logo">
             <h1>Institut des Technologies du Digital</h1>
         </header>
-        
-        <div class="welcome-message">
-            <h2>Bienvenue Christian,</h2>
+        @if (account !== null) {
+        <div class="welcome-page-studentt">
+
+            <h2>Bienvenue <span class="player-name">{{ account.login }},</span></h2>
+            
         </div>
         
         <nav class="navigation">
@@ -104,7 +106,11 @@
               </p>
           </div>
       </div>
+    }@else {
+
+    }
   </div>
+
 </body>
 </html>
 

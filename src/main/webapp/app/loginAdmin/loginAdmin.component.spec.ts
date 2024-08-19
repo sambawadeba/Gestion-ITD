@@ -1,5 +1,5 @@
 jest.mock('app/core/auth/account.service');
-jest.mock('app/login/login.service');
+jest.mock('app/login/loginAdmin.service');
 
 import { ElementRef, signal } from '@angular/core';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
@@ -9,40 +9,40 @@ import { of, throwError } from 'rxjs';
 
 import { AccountService } from 'app/core/auth/account.service';
 
-import { LoginService } from './login.service';
-import LoginComponent from './login.component';
+import { LoginAdminService } from './loginAdmin.component';
+import LoginAdminComponent from './loginAdmin.component';
 
 describe('LoginComponent', () => {
-  let comp: LoginComponent;
-  let fixture: ComponentFixture<LoginComponent>;
+  let comp: LoginAdminComponent;
+  let fixture: ComponentFixture<LoginAdminComponent>;
   let mockRouter: Router;
   let mockAccountService: AccountService;
-  let mockLoginService: LoginService;
+  let mockLoginService: LoginAdminService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      imports: [LoginComponent],
+      imports: [LoginAdminComponent],
       providers: [
         FormBuilder,
         AccountService,
         {
-          provide: LoginService,
+          provide: LoginAdminService,
           useValue: {
             login: jest.fn(() => of({})),
           },
         },
       ],
     })
-      .overrideTemplate(LoginComponent, '')
+      .overrideTemplate(LoginAdminComponent, '')
       .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LoginComponent);
+    fixture = TestBed.createComponent(LoginAdminComponent);
     comp = fixture.componentInstance;
     mockRouter = TestBed.inject(Router);
     jest.spyOn(mockRouter, 'navigate').mockImplementation(() => Promise.resolve(true));
-    mockLoginService = TestBed.inject(LoginService);
+    mockLoginService = TestBed.inject(LoginAdminService);
     mockAccountService = TestBed.inject(AccountService);
   });
 

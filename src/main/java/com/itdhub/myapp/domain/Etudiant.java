@@ -7,8 +7,7 @@ public class Etudiant {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long numeroEtudiant;
-
+    private Long id;
     @Column(nullable = false, unique = true)
     private String idEtudiant;
 
@@ -20,29 +19,35 @@ public class Etudiant {
 
     @Column(nullable = false, unique = true)
     private String email;
-
+    @Column(nullable = false)
     private String adresse;
+    @Column(nullable = false)
     private String telephone;
+    @Column(nullable = false)
+    private String motDePasse;
 
     // Constructeurs
-    public Etudiant() {}
+    public Etudiant(String idEtudiant, String nom, String prenom, String email, String adresse, String telephone, String motDePasse) {
 
-    public Etudiant(String idEtudiant, String nom, String prenom, String email, String adresse, String telephone) {
         this.idEtudiant = idEtudiant;
         this.nom = nom;
         this.prenom = prenom;
         this.email = email;
         this.adresse = adresse;
         this.telephone = telephone;
+        this.motDePasse=motDePasse;
     }
 
-    // Getters et Setters
-    public Long getNumeroEtudiant() {
-        return numeroEtudiant;
+
+
+    
+
+    public Long getId() {
+        return id;
     }
 
-    public void setNumeroEtudiant(Long numeroEtudiant) {
-        this.numeroEtudiant = numeroEtudiant;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getIdEtudiant() {
@@ -91,5 +96,13 @@ public class Etudiant {
 
     public void setTelephone(String telephone) {
         this.telephone = telephone;
+    }
+
+    public String getMotDePasse() {
+        return motDePasse;
+    }
+
+    public void setMotDePasse(String motDePasse) {
+        this.motDePasse = motDePasse;
     }
 }

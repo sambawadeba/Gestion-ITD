@@ -10,10 +10,10 @@ import { AccountService } from 'app/core/auth/account.service';
   standalone: true,
   selector: 'jhi-login',
   imports: [SharedModule, FormsModule, ReactiveFormsModule, RouterModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.scss',
+  templateUrl: './loginAdmin.component.html',
+  styleUrl: './loginAdmin.component.scss',
 })
-export default class LoginComponent {
+export default class LoginAdminComponent {
   @ViewChild('username', {static:false})
   username!:ElementRef;
 

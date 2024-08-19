@@ -1,0 +1,34 @@
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut des Technologies du Digital</title>
+    
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="../../content/images/logo_itd.png" alt="Logo ITD" class="logo">
+            <h1>Institut des Technologies du Digital</h1>
+        </header>
+        
+        <div class="content">
+            <div class="image-section">
+                <img src="../../content/images/logo_professeur.jpg" alt="Etudiants" class="image">
+            </div>
+            <div class="login-section">
+                <form action="/profLogin" method="post">
+                    <h2>Authentification</h2>
+                    <label for="username">Identifiant</label>
+                    <input type="text" id="username" name="username" required>
+                    
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" required>
+                    
+                    <button type="submit"> <a href="/professeur" >Se connecter </a></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
