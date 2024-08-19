@@ -1,16 +1,12 @@
 package com.itdhub.myapp.web.rest;
-
 import com.itdhub.myapp.domain.Professeur;
 import com.itdhub.myapp.service.ProfesseurService;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-    import java.util.List;
-
+import java.util.List;
 @RestController
 @RequestMapping("/api/professeurs")
 public class ProfesseurController {
@@ -18,29 +14,41 @@ public class ProfesseurController {
     @Autowired
     private ProfesseurService professeurService;
 
-    @PostMapping("/creer")
-    public Professeur creer(@RequestBody Professeur professeur) {
-        return professeurService.creer(professeur);
-    }
-
-    @GetMapping("/lireTous")
+    @GetMapping
     public List<Professeur> lireTous() {
         return professeurService.lireTous();
     }
 
-    @GetMapping("/lireParId/{id}")
-    public Professeur lireParId(@PathVariable Long id) {
-        return professeurService.lireParId(id).orElseThrow(() -> new RuntimeException("Professeur non trouvé"));
+    @GetMapping("/{id}")
+    public ResponseEntity<Professeur> lireParId(@PathVariable Long id) {
+        Professeur professeur = professeurService.lireParId(id);
+        if (professeur != null) {
+            return new ResponseEntity<>(professeur, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/mettreAJour/{id}")
-    public Professeur mettreAJour(@PathVariable Long id, @RequestBody Professeur professeurDetails) {
-        return professeurService.mettreAJour(id, professeurDetails);
+    @PostMapping
+    public ResponseEntity<Professeur> creer(@RequestBody Professeur professeur) {
+        Professeur nouveauProfesseur = professeurService.creer(professeur);
+        return new ResponseEntity<>(nouveauProfesseur, HttpStatus.CREATED);
     }
 
-    @DeleteMapping("/supprimer/{id}")
-    public void supprimer(@PathVariable Long id) {
+    @PutMapping("/{id}")
+    public ResponseEntity<Professeur> modifier(@PathVariable Long id, @RequestBody Professeur professeur) {
+        Professeur professeurModifie = professeurService.modifier(id, professeur);
+        if (professeurModifie != null) {
+            return new ResponseEntity<>(professeurModifie, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> supprimer(@PathVariable Long id) {
         professeurService.supprimer(id);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
+
+
 

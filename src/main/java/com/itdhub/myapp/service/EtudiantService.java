@@ -48,7 +48,7 @@ public class EtudiantService {
         etudiantRepository.deleteById(id);
     }
 
-    @PostConstruct
+    /*@PostConstruct
     public void ajouterEtudiantsDeTest() {
         List<Etudiant> etudiants = Arrays.asList(
             new Etudiant("ITD001", "Ly", "Bineta", "bineta.ly@gmail.com", "Mbour", "73 432 27 32", "ba&é"),
@@ -61,5 +61,5 @@ public class EtudiantService {
                 etudiantRepository.save(etudiant);
             }
         }
-    }
+    }*/
 }
