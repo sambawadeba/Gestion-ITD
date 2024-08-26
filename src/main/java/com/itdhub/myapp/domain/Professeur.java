@@ -1,59 +1,50 @@
 package com.itdhub.myapp.domain;
 
 import jakarta.persistence.*;
-
 @Entity
+
 public class Professeur {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String idProfesseur;
+        @Column(nullable = false, unique = true)
+        private String idProfesseur;
 
-    @Column(nullable = false)
-    private String nom;
+        @Column(nullable = false)
+        private String nom;
 
-    @Column(nullable = false)
-    private String prenom;
+        @Column(nullable = false)
+        private String prenom;
 
-    @Column(nullable = false, unique = true)
-    private String email;
-    @Column(nullable = false)
-    private String adresse;
-    @Column(nullable = false)
-    private String telephone;
-    @Column(nullable = false)
-    private String motDePasse;
+        @Column(nullable = false, unique = true)
+        private String email;
+        @Column(nullable = false)
+        private String adresse;
+        @Column(nullable = false)
+        private String telephone;
+        @Column(nullable = false)
+        private String motDePasse;
     @Column(nullable = false)
     private String matiere;
 
-    // Constructeurs
+        // Constructeurs
 
-    public Professeur(String idProfesseur, String nom, String prenom, String email, String adresse, String telephone, String motDePasse, String matiere) {
-        this.idProfesseur = idProfesseur;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
-        this.adresse = adresse;
-        this.telephone = telephone;
-        this.motDePasse=motDePasse;
-        this.matiere=matiere;
-    }
+        public Professeur(String idProfesseur, String nom, String prenom, String email, String adresse, String telephone, String motDePasse, String matiere) {
+            this.idProfesseur = idProfesseur;
+            this.nom = nom;
+            this.prenom = prenom;
+            this.email = email;
+            this.adresse = adresse;
+            this.telephone = telephone;
+            this.motDePasse=motDePasse;
+            this.matiere=matiere;
+        }
 
     public Professeur() {
 
     }
-
-    // Getters et Setters
-   /* public Long getNumeroEtudiant() {
-        return numeroEtudiant;
-    }
-
-    public void setNumeroEtudiant(Long numeroEtudiant) {
-        this.numeroEtudiant = numeroEtudiant;
-    }*/
 
     public Long getId() {
         return id;
@@ -127,5 +118,3 @@ public class Professeur {
         this.matiere = matiere;
     }
 }
-
-
