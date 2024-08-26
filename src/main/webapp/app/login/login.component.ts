@@ -48,7 +48,7 @@ export default class LoginComponent {
         this.authenticationError.set(false);
         if (!this.router.getCurrentNavigation()) {
           // There were no routing during login (eg from navigationToStoredUrl)
-          this.router.navigate(['etudiant']);
+          this.router.navigate(['/etudiant']);
         }
       },
       error: () => this.authenticationError.set(true),
