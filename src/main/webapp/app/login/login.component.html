@@ -1,4 +1,59 @@
-<div>
+<div class="login-container">
+  <div class="header">
+    <img src="../../content/images/logo_itd.png" alt="Logo ITD" class="logo" />
+    <h1>Institut des Technologies du Digital</h1>
+  </div>
+  <div class="content">
+    <div class="image-container">
+      <img src="../../content/images/logo_etudiant.jpg" alt="Classroom Image" class="classroom-image" />
+    </div>
+    <div class="login-form-container">
+      <h1 data-cy="loginTitle" jhiTranslate="login.title">Authentification</h1>
+      @if (authenticationError()) {
+        <div class="alert alert-danger" data-cy="loginError" jhiTranslate="login.messages.error.authentication">
+          <strong>Erreur d&apos;authentification !</strong> Veuillez vérifier vos identifiants de connexion.
+        </div>
+      }
+      <form class="form" (ngSubmit)="login()" [formGroup]="loginForm">
+        <div class="mb-3">
+          <label class="username-label" for="username" jhiTranslate="global.form.username.label">Prénom</label>
+          <input
+            type="text"
+            class="form-control"
+            name="username"
+            id="username"
+            placeholder="{{ 'global.form.username.placeholder' | translate }}"
+            formControlName="username"
+            #username
+            data-cy="username"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="password" jhiTranslate="login.form.password">Mot de passe</label>
+          <input
+            type="password"
+            class="form-control"
+            name="password"
+            id="password"
+            placeholder="{{ 'login.form.password.placeholder' | translate }}"
+            formControlName="password"
+            data-cy="password"
+          />
+        </div>
+
+
+        <button type="submit" class="btn btn-primary" data-cy="submit" jhiTranslate="login.form.button">Se connecter</button>
+      </form>
+      
+
+      
+    </div>
+</div>
+</div>
+
+
+<!--<div>
   <div class="d-flex justify-content-center">
     <div class="col-lg-6 col-md-8 col-sm-10">
       <h1 data-cy="loginTitle" jhiTranslate="login.title">Authentification</h1>
@@ -56,7 +111,7 @@
       </div>
     </div>
   </div>
-</div>
+</div>-->
 <!--<html lang="fr">
 <head>
     <meta charset="UTF-8">
