@@ -43,15 +43,6 @@ public class Etudiant {
 
     }
 
-    // Getters et Setters
-   /* public Long getNumeroEtudiant() {
-        return numeroEtudiant;
-    }
-
-    public void setNumeroEtudiant(Long numeroEtudiant) {
-        this.numeroEtudiant = numeroEtudiant;
-    }*/
-
     public Long getId() {
         return id;
     }
