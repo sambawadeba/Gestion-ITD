@@ -43,15 +43,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module'; 
-import { AppComponent } from './app.component';
-import { EtudiantComponent } from './etudiant/etudiant.component';
-import { LoginComponent } from './login/login.component'; 
+//import { AppComponent } from './app.component';
+//import { EtudiantComponent } from './etudiant/etudiant.component';
+//import { LoginComponent } from './login/login.component'; 
+//import { ProfesseurComponent } from './professeur/professeur.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    EtudiantComponent,
-    LoginComponent
+    //AppComponent,
+    //EtudiantComponent,
+    //ProfesseurComponent
+    //LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,6 @@ import { LoginComponent } from './login/login.component';
     HttpClientModule 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+ // bootstrap: [AppComponent]
 })
 export class AppModule { }
