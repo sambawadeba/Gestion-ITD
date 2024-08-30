@@ -8,16 +8,16 @@ import HomeComponent from './home/home.component';
 import NavbarComponent from './layouts/navbar/navbar.component';
 import LoginComponent from './login/login.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
-//import { EEmploiDuTempsComponent } from './eEmploiDuTemps/eEmploiDuTemps.component';
+import { EEmploiDuTempsComponent } from './eEmploiDuTemps/eEmploiDuTemps.component';
 //import { ProfesseurComponent } from './professeur/professeur.component';
 
 
 const routes: Routes = [
-/*
+
   { path: 'eEmploiDuTemps', 
     component: EEmploiDuTempsComponent,
     title: 'EEploiDuTemps',
-   },*/
+   },
 
   {
     path: 'etudiant',

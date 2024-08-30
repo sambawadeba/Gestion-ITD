@@ -84,6 +84,23 @@
             </column>
         </createTable>
 
+
+        <createTable tableName="cours">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="nom_fichier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_fichier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="donnees_fichier" type="BLOB">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
         <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
 
         <addForeignKeyConstraint baseColumnNames="authority_name"
