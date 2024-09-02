@@ -10,6 +10,7 @@ public class Etudiant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
     @Column(nullable = false, unique = true)
     private String idEtudiant;
 
@@ -29,9 +30,28 @@ public class Etudiant {
     private String motDePasse;
 
 
+
     @OneToMany(mappedBy = "etudiant")
     private List<Notes> notes;
 
+    // Constructeurs
+
+    public Etudiant(String idEtudiant, String nom, String prenom, String email, String adresse, String telephone, String motDePasse) {
+        this.idEtudiant = idEtudiant;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.adresse = adresse;
+        this.telephone = telephone;
+        this.motDePasse=motDePasse;
+    }
+
+
+    public Etudiant() {
+
+
+
+    }
 
 
     public Long getId() {
@@ -105,3 +125,5 @@ public class Etudiant {
         this.notes = notes;
     }
 }
+
+

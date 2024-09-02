@@ -89,6 +89,23 @@
             </column>
         </createTable>
 
+
+        <createTable tableName="cours">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="nom_fichier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="type_fichier" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="donnees_fichier" type="BLOB">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+
         <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
 
         <addForeignKeyConstraint baseColumnNames="authority_name"
@@ -107,25 +124,25 @@
                                 columnDataType="varchar(60)"
                                 tableName="jhi_user"/>
         <loadData
-                  file="config/liquibase/data/authority.csv"
-                  separator=";"
-                  tableName="jhi_authority"
-                  usePreparedStatements="true">
+            file="config/liquibase/data/authority.csv"
+            separator=";"
+            tableName="jhi_authority"
+            usePreparedStatements="true">
             <column name="name" type="string"/>
         </loadData>
         <loadData
-                  file="config/liquibase/data/user.csv"
-                  separator=";"
-                  tableName="jhi_user"
-                  usePreparedStatements="true">
+            file="config/liquibase/data/user.csv"
+            separator=";"
+            tableName="jhi_user"
+            usePreparedStatements="true">
             <column name="activated" type="boolean"/>
             <column name="created_date" type="timestamp"/>
         </loadData>
         <loadData
-                  file="config/liquibase/data/user_authority.csv"
-                  separator=";"
-                  tableName="jhi_user_authority"
-                  usePreparedStatements="true">
+            file="config/liquibase/data/user_authority.csv"
+            separator=";"
+            tableName="jhi_user_authority"
+            usePreparedStatements="true">
             <column name="user_id" type="numeric"/>
         </loadData>
         <dropDefaultValue tableName="jhi_user" columnName="created_date" columnDataType="${datetimeType}"/>

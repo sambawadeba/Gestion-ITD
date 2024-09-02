@@ -1,11 +1,13 @@
 package com.itdhub.myapp.service;
 
 import com.itdhub.myapp.domain.Etudiant;
+import com.itdhub.myapp.domain.Professeur;
 import com.itdhub.myapp.repository.EtudiantRepository;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -45,8 +47,6 @@ public class EtudiantService {
     public void supprimer(Long id) {
         etudiantRepository.deleteById(id);
     }
-
-
 
 
 

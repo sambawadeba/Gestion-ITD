@@ -33,6 +33,11 @@ const routes: Routes = [
     component: EtudiantComponent,
     title: 'Etudiant',
   },
+  /*{
+    path: 'professeur',
+    component: ProfesseurComponent,
+    title: 'Professeur',
+  },*/
   
   {
     path: '',

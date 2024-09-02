@@ -108,4 +108,5 @@ public class SecurityConfiguration {
     MvcRequestMatcher.Builder mvc(HandlerMappingIntrospector introspector) {
         return new MvcRequestMatcher.Builder(introspector);
     }
+
 }

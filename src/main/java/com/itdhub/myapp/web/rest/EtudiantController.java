@@ -65,3 +65,4 @@ public class EtudiantController {
         return new ResponseEntity<>(notes, HttpStatus.OK);
     }
 }
+
