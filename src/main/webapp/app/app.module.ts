@@ -46,12 +46,15 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
 import { LoginComponent } from './login/login.component'; 
+import { CertificationsComponent } from './certifications/certifications.component';
+import { CertificationsService } from './certifications/certifications.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     EtudiantComponent,
-    LoginComponent
+    LoginComponent,
+    CertificationsComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,7 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule, 
     HttpClientModule 
   ],
-  providers: [],
+  providers: [CertificationsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

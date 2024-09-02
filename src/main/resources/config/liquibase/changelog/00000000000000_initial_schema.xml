@@ -83,6 +83,11 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <createTable tableName="notes">
+            <column name="etudiant_id" type="varchar(50)">
+                <constraints foreignKeyName="etudiant_id"  nullable="false"/>
+            </column>
+        </createTable>
 
         <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
 

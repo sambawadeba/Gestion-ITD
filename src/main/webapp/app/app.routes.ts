@@ -9,9 +9,19 @@ import NavbarComponent from './layouts/navbar/navbar.component';
 import LoginComponent from './login/login.component';
 import { EtudiantComponent } from './etudiant/etudiant.component';
 import { EEmploiDuTempsComponent } from './eEmploiDuTemps/eEmploiDuTemps.component';
+import{ eNotesComponent } from'./eNotes/eNotes.component';
+import { CertificationsComponent } from './certifications/certifications.component';
 
 
 const routes: Routes = [
+  { path: 'certifications', 
+    component: CertificationsComponent,
+    title: 'certifications',
+   },
+  { path: 'eNotes', 
+    component: eNotesComponent,
+    title: 'ENotes',
+   },
 
   { path: 'eEmploiDuTemps', 
     component: EEmploiDuTempsComponent,

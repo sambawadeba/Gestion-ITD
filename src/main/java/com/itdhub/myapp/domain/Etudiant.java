@@ -2,6 +2,8 @@ package com.itdhub.myapp.domain;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 public class Etudiant {
 
@@ -26,21 +28,11 @@ public class Etudiant {
     @Column(nullable = false)
     private String motDePasse;
 
-    // Constructeurs
-    public Etudiant(String idEtudiant, String nom, String prenom, String email, String adresse, String telephone, String motDePasse) {
 
-        this.idEtudiant = idEtudiant;
-        this.nom = nom;
-        this.prenom = prenom;
-        this.email = email;
-        this.adresse = adresse;
-        this.telephone = telephone;
-        this.motDePasse=motDePasse;
-    }
+    @OneToMany(mappedBy = "etudiant")
+    private List<Notes> notes;
 
 
-
-    
 
     public Long getId() {
         return id;
@@ -104,5 +96,12 @@ public class Etudiant {
 
     public void setMotDePasse(String motDePasse) {
         this.motDePasse = motDePasse;
+    }
+    public List<Notes> getNotes() {
+        return notes;
+    }
+
+    public void setNotes(List<Notes> notes) {
+        this.notes = notes;
     }
 }
