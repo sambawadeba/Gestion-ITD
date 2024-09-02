@@ -27,7 +27,7 @@ export class EtudiantComponent implements OnInit, OnDestroy {
     private etudiantService: EtudiantService,
     private accountService: AccountService,
     private router: Router
-    
+
   ) {}
 
   ngOnInit(): void {
@@ -74,5 +74,7 @@ export class EtudiantComponent implements OnInit, OnDestroy {
     });
   }
 }
+
+
 
 

@@ -31,3 +31,5 @@ export class EtudiantService {
     return this.http.delete(`${this.baseUrl}/${id}`);
   }
 }
+
+
