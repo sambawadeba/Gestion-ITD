@@ -48,7 +48,6 @@ public class CoursService {
 }*/
 @Service
 public class CoursService {
-
     @Autowired
     private CoursRepository coursRepository;
 
