@@ -50,8 +50,11 @@ body {
     justify-content: center;
     margin-bottom: 30px;
 }
-.student-name{
-    color: rgb(45, 117, 219);
+.statut{
+    color: green; 
+}
+.statut_no{
+    color: red;
 }
 
 .nav-button {
@@ -94,6 +97,5 @@ body {
     padding: 20px;
     font-size: 25px;
     font-family: Arial,  sans-serif;
-    color:#333;
+    color:#333;
 }
-

@@ -27,7 +27,7 @@ export class EtudiantComponent implements OnInit, OnDestroy {
     private etudiantService: EtudiantService,
     private accountService: AccountService,
     private router: Router
-    
+
   ) {}
 
   ngOnInit(): void {
@@ -47,6 +47,7 @@ export class EtudiantComponent implements OnInit, OnDestroy {
       this.etudiants = data;
     });
   }
+
   ajouterEtudiant(): void {
     this.etudiantService.creerEtudiant(this.etudiant).subscribe(data => {
       this.getEtudiants();
@@ -70,6 +71,10 @@ export class EtudiantComponent implements OnInit, OnDestroy {
   supprimerEtudiant(id: number): void {
     this.etudiantService.supprimerEtudiant(id).subscribe(() => {
       this.getEtudiants();
-});
+    });
+  }
 }
-}
+
+
+
+

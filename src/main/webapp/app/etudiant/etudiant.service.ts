@@ -22,11 +22,14 @@ export class EtudiantService {
   getEtudiant(id: number): Observable<Etudiant> {
     return this.http.get<Etudiant>(`${this.baseUrl}/${id}`);
   }
+
   getEtudiants(): Observable<Etudiant[]> {
     return this.http.get<Etudiant[]>(`${this.baseUrl}`);
   }
 
   supprimerEtudiant(id: number): Observable<any> {
     return this.http.delete(`${this.baseUrl}/${id}`);
+  }
 }
-}
+
+

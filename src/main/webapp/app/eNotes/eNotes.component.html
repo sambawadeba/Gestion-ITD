@@ -1,0 +1,43 @@
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
+  <script>
+  var app = angular.module('', ['ngAnimate']);
+  </script><head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Mes Notes</title>
+  <body>
+    <div class="container">
+        <header class="header">
+            <img src="../../content/images/logo_itd.png" alt="Logo ITD" class="logo">
+            <h1>Institut des Technologies du Digital</h1>
+        </header>
+        <div class="welcome-page-student">
+            <nav class="navigation">
+                <a href="/etudiant" class="nav-button">Accueil</a>
+                <a href="/eEmploiDuTemps" class="nav-button">Emploi du Temps</a>
+                <a href="/eNotes" class="nav-button">Notes</a>
+                <a href="#mes-cours" class="nav-button">Cours</a>
+                <a href="#mes-certifications" class="nav-button">Certifications</a>
+                <a href="#notifications" class="nav-button">Notifications</a>
+            </nav>
+            </div>
+<div  style="background-color: aqua;">
+    
+    <table class="table table-striped">
+      <thead class="table-dark">
+        <tr>
+          <th class="table-primary">Modules</th>
+          <th class="table-danger">Notes</th>
+          <th class="table-success">Professeurs</th>
+        </tr>
+      </thead>
+      <!--<tbody>
+        <tr *ngFor="let note of eNotes">
+          <td>{{ note.module }}</td>
+          <td>{{ note.note }}</td>
+        </tr>
+      </tbody>-->
+    </table>
+  </div>
+</div>
+</body>
