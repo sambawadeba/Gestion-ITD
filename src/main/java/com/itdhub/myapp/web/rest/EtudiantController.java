@@ -51,18 +51,6 @@ public class EtudiantController {
         etudiantService.supprimer(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
-    @Autowired
-    private NotesService notesService;
 
-    @GetMapping("/{id}/notes")
-    public ResponseEntity<List<Notes>> getNotes(@PathVariable Long id, Principal principal) {
-
-        if (!principal.getName().equals(id.toString())) {
-            return new ResponseEntity<>(HttpStatus.FORBIDDEN);
-        }
-
-        List<Notes> notes = notesService.getNotesByEtudiantId(id);
-        return new ResponseEntity<>(notes, HttpStatus.OK);
-    }
 }
 

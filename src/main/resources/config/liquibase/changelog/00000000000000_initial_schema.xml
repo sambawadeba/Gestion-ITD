@@ -135,6 +135,20 @@
                 <constraints nullable="false"/>
             </column>
         </createTable>
+        <createTable tableName="notes">
+            <column name="id" autoIncrement="true">
+                <constraints nullable="false"/>
+            </column>
+            <column name="notes">
+                <constraints nullable="false"/>
+            </column>
+            <column name="etudiant_notes">
+                <constraints nullable="false"/>
+            </column>
+            <column name="module">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
 
 
         <addPrimaryKey columnNames="user_id, authority_name" tableName="jhi_user_authority"/>
