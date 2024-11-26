@@ -43,6 +43,21 @@ public class EtudiantService {
         }
         return null;
     }
+    /*
+    public Utilisateur update(Long id, Utilisateur utilisateur) {
+     Utilisateur utilisateurExistant = utilisateurRepository.findById(id).orElse(null);
+        if (utilisateurExistant != null) {
+            utilisateurExistant.setNom(etudiant.getNom());
+            utilisateurExistant.setPrenom(etudiant.getPrenom());
+            utilisateurExistant.setEmail(etudiant.getEmail());
+            utilisateurExistant.setAdresse(etudiant.getAdresse());
+            etudiantExistant.setTelephone(etudiant.getTelephone());
+
+            return utilisateurRepository.save(utilisateurExistant);
+        }
+        return null;
+    }
+    */
 
     public void supprimer(Long id) {
         etudiantRepository.deleteById(id);
