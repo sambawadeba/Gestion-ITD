@@ -50,8 +50,8 @@ public class EtudiantController {
     public ResponseEntity<Void> supprimer(@PathVariable Long id) {
         etudiantService.supprimer(id);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-    }}
-    /*@Autowired
+    }/*
+    @Autowired
     private NotesService notesService;
 
     @GetMapping("/{id}/notes")
@@ -63,6 +63,6 @@ public class EtudiantController {
 
         List<Notes> notes = notesService.getNotesByEtudiantId(id);
         return new ResponseEntity<>(notes, HttpStatus.OK);
-    }
-}*/
+    }*/
+}
 
