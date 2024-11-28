@@ -1,4 +1,4 @@
-<!--<p>cours works!</p>-->
+<!--<p>cours works!</p>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-animate.js"></script>
   <script>
   var app = angular.module('', ['ngAnimate']);
@@ -7,7 +7,7 @@
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
  <title>Cours</title>
   </head>
-  <body> 
+  <body>
     <header class="header">
       <img src="../../content/images/logo_itd.png" alt="Logo ITD" class="logo">
       <h1>Institut des Technologies du Digital</h1>
@@ -31,4 +31,49 @@
        <th class="table-warning">Bureautique</th>
      </tr>
    </thead>
-   </body>
+  </table>
+   </body>-->
+
+<header class="header">
+  <img src="../../content/images/logo_itd.png" alt="Logo ITD" class="logo">
+  <h1>Institut des Technologies du Digital</h1>
+</header>
+<nav class="navigation">
+  <a href="/etudiant" class="nav-button">Accueil</a>
+  <a href="/eEmploiDuTemps" class="nav-button">Emploi du Temps</a>
+  <a href="/eNotes" class="nav-button">Notes</a>
+  <a href="/cours" class="nav-button">Cours</a>
+  <a href="/certifications" class="nav-button">Certifications</a>
+  <a href="#notifications" class="nav-button">Notifications</a>
+</nav>
+
+  <main class="container mx-auto mt-8 p-4">
+    <div class="tabs">
+      <ul class="tab-list">
+        <li [class.active]="activeTab === 'documents'" (click)="setActiveTab('documents')">Documents de cours</li>
+        <li [class.active]="activeTab === 'notes'" (click)="setActiveTab('notes')">Mes notes</li>
+      </ul>
+
+      <div class="tab-content" *ngIf="activeTab === 'documents'">
+        <h2 class="text-xl font-bold mb-4">Documents de cours</h2>
+        <div class="grid">
+          <div class="card" *ngFor="let subject of subjects">
+            <h3 class="card-title">{{ subject }}</h3>
+            <button class="btn btn-secondary">Voir les documents</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-content" *ngIf="activeTab === 'notes'">
+        <h2 class="text-xl font-bold mb-4">Mes notes</h2>
+        <div class="note-container">
+          <input [(ngModel)]="noteTitle" placeholder="Titre de la note" class="input-field">
+          <textarea [(ngModel)]="noteContent" placeholder="Écrivez vos notes ici..." class="textarea-field"></textarea>
+          <button (click)="saveNote()" class="save-button">Enregistrer la note</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+
+

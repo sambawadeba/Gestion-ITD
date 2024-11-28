@@ -7,16 +7,16 @@ import { eNotes } from './eNotes.model';
   providedIn: 'root'
 })
 export class eNotesService {
-  private apiUrl = 'http://localhost:8080/api/etudiants'; 
+  private apiUrl = 'http://localhost:8080/api/etudiants';
 
   constructor(private http: HttpClient) { }
 
-  
-  getNotes(etudiantId: number): Observable<eNotes[]> {
+
+  /*getNotes(etudiantId: number): Observable<eNotes[]> {
     return this.http.get<eNotes[]>(`${this.apiUrl}/${etudiantId}/notes`);
   }
  eNotes: eNotes[] = [
-    
+
         {
           "id": 1,
           "module": "Mathématiques",
@@ -42,6 +42,6 @@ export class eNotesService {
           "module": "Littérature",
           "note": 16.0
         }
-]
+]*/
 
 }

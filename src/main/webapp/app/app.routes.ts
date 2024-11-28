@@ -11,19 +11,20 @@ import { EtudiantComponent } from './etudiant/etudiant.component';
 import { EEmploiDuTempsComponent } from './eEmploiDuTemps/eEmploiDuTemps.component';
 import{ eNotesComponent } from'./eNotes/eNotes.component';
 import { CertificationsComponent } from './certifications/certifications.component';
+import { CoursComponent} from "./cours/cours.component";
 
 
 const routes: Routes = [
-  { path: 'certifications', 
+  { path: 'certifications',
     component: CertificationsComponent,
     title: 'certifications',
    },
-  { path: 'eNotes', 
+  { path: 'eNotes',
     component: eNotesComponent,
     title: 'ENotes',
    },
 
-  { path: 'eEmploiDuTemps', 
+  { path: 'eEmploiDuTemps',
     component: EEmploiDuTempsComponent,
     title: 'EEploiDuTemps',
    },
@@ -33,12 +34,17 @@ const routes: Routes = [
     component: EtudiantComponent,
     title: 'Etudiant',
   },
+  {
+    path:'cours',
+    component:CoursComponent,
+    title: 'Cours'
+  },
   /*{
     path: 'professeur',
     component: ProfesseurComponent,
     title: 'Professeur',
   },*/
-  
+
   {
     path: '',
     component: HomeComponent,

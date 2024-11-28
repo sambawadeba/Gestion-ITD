@@ -1,0 +1,187 @@
+.header {
+  margin-top: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #003b8e;
+  padding: 20px;
+}
+.logo {
+  display: inline-block;
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+  background-size: contain;
+}
+
+.logo {
+  width: 50px;
+  vertical-align: middle;
+}
+.header h1 {
+  color: white;
+  margin: 0;
+}
+
+
+.welcome-page-student {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 15px;
+}
+
+.navigation {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.student-name{
+  color: rgb(45, 117, 219);
+}
+
+.nav-button {
+  padding: 15px 30px;
+  margin: 0 15px;
+  background-color: #ff9933;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.nav-button:hover {
+  background-color: #ff9933;
+}
+
+/*:host {
+  display: block;
+}
+
+.bg-primary {
+  background-color: #024670;
+}*/
+
+.btn-primary {
+  background-color: #003b8e;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #003b8e;
+}
+
+.btn-secondary {
+  background-color: #ff9933;
+  color: white;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  text-align: center;
+  transition: background-color 0.3s;
+}
+
+.btn-secondary:hover {
+  background-color: #f16e00;
+}
+
+.tabs {
+  width: 100%;
+}
+
+.tab-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.tab-list li {
+  padding: 10px;
+  text-align: center;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+
+.tab-list li.active {
+  background-color: #003b8e;
+  color: white;
+}
+
+.tab-content {
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+.card-title {
+  color: #003b8e;
+  font-weight: bold;
+ /* margin-bottom: 10px;*/
+  font-size: 1.125rem;
+  margin: 0;
+}
+
+.btn {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.note-container {
+  max-width: 600px; /* Largeur maximale du conteneur */
+  margin: 20px auto; /* Centrage du conteneur */
+  padding: 20px; /* Espacement interne */
+  border: 1px solid #ccc; /* Bordure grise claire */
+  border-radius: 8px; /* Coins arrondis */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Ombre légère */
+}
+
+.input-field, .textarea-field {
+  width: 100%; /* Prend toute la largeur du conteneur */
+  padding: 10px; /* Ajoute un espacement interne */
+  border: 1px solid #ccc; /* Bordure grise claire */
+  border-radius: 4px; /* Coins arrondis */
+  box-sizing: border-box; /* Inclut le padding et la bordure dans la largeur totale */
+  margin-bottom: 10px; /* Espacement entre les éléments */
+}
+
+.textarea-field {
+  height: 150px; /* Hauteur fixe pour la zone de texte */
+}
+
+.save-button {
+  background-color: #007bff; /* Couleur de fond bleue */
+  color: white; /* Texte blanc */
+  border: none; /* Pas de bordure */
+  padding: 10px; /* Espacement interne */
+  border-radius: 4px; /* Coins arrondis */
+  cursor: pointer; /* Curseur en forme de main au survol */
+  width: 100%; /* Prend toute la largeur du conteneur */
+}
+
+.save-button:hover {
+  background-color: #0056b3; /* Couleur de fond plus sombre au survol */
+}
+
+
+
