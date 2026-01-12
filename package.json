@@ -89,8 +89,8 @@
   },
   "dependencies": {
     "@angular/common": "18.0.4",
-    "@angular/compiler": "18.0.4",
-    "@angular/core": "18.0.4",
+    "@angular/compiler": "19.2.18",
+    "@angular/core": "19.2.18",
     "@angular/forms": "18.0.4",
     "@angular/localize": "18.0.4",
     "@angular/platform-browser": "18.0.4",
